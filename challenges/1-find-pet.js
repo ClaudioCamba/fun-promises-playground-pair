@@ -1,18 +1,16 @@
 const fs = require("fs/promises")
 
 function findPet(name) {
-    const myPromise = new Promise((resolve, reject) => {
-        return fs.readFile(`${__dirname}/../data/${name}.json`, `utf8`, (err,data) => {
-            data ? resolve(data) : reject(err); 
-        }).then((pets)=>{
-            resolve(JSON.parse(pets));
-        }).catch(()=>{
-            resolve("soz couldnt find snoopy :(");
-        })
-    });
+    const myPromise = fs.readFile(`${__dirname}/../data/${name}.json`, `utf8`)
+        .then((pets)=>{
+                return JSON.parse(pets);
+            })
+        .catch(()=>{
+            return "soz couldnt find snoopy :(";
+        });
+  
 
     return myPromise;
-
 }
 module.exports = findPet;
 

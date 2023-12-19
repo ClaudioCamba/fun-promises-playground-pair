@@ -19,5 +19,8 @@
   },
   "main": "index.js",
   "keywords": [],
-  "author": ""
+  "author": "",
+  "dependencies": {
+    "inquirer": "^8.2.6"
+  }
 }
